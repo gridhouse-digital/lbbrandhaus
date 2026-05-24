@@ -40,3 +40,4 @@ npm run preview  # preview the production build
 Start with **Overview**, then review **Design System**, followed by the page previews: **Home**, **Services**, **Studio**, **Portfolio**, and **Contact**.
 
 This pass preserves the legacy page previews and improves the client-facing presentation wrapper around them.
+
