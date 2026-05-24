@@ -1,0 +1,2037 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LB Brand Haus — Design System & Artboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* === BRAND PALETTE (sourced from current site CSS) === */
+    --contrast: #101014;   /* primary onyx — logo background */
+    --charcoal: #2D2D2D;   /* warm dark */
+    --slate:    #444457;   /* cool slate accent */
+    --bone:     #F2F0E4;   /* warm off-white background */
+    --ivory:    #FFFCEB;   /* primary cream — logo color */
+    --orange:   #CC5500;   /* signature burnt orange */
+    --teal:     #153534;   /* deep forest accent */
+
+    /* Working tokens */
+    --ink: var(--contrast);
+    --paper: var(--bone);
+    --paper-warm: #EAE6D6;
+    --rule: rgba(16,16,20,0.14);
+    --rule-soft: rgba(16,16,20,0.06);
+    --muted: #6B6760;
+
+    --r-sm: 4px;
+    --r-md: 8px;
+    --r-lg: 14px;
+    --r-pill: 100px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #C9C2B0;     /* artboard canvas — desaturated bone */
+    color: var(--ink);
+    font-family: 'Geist', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  /* === TYPOGRAPHY UTILITIES === */
+  .display { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; letter-spacing: -0.02em; line-height: 0.94; font-weight: 360; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: 'opsz' 144, 'SOFT' 100; }
+  .mono { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .sans { font-family: 'Geist', sans-serif; }
+
+  /* === ARTBOARD STRUCTURE === */
+  .artboard {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 80px 60px 120px;
+  }
+
+  .ab-cover {
+    background: var(--ink);
+    color: var(--ivory);
+    padding: 120px 80px;
+    border-radius: var(--r-lg);
+    margin-bottom: 80px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ab-cover .logo-mark {
+    width: 180px; height: 180px;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 0.5px solid rgba(255,252,235,0.15);
+  }
+  .ab-cover .logo-mark img { width: 100%; height: 100%; display: block; }
+  .ab-cover .meta { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,252,235,0.55); margin-bottom: 28px; }
+  .ab-cover h1 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+    font-size: clamp(60px, 8vw, 124px);
+    font-weight: 320;
+    letter-spacing: -0.025em;
+    line-height: 0.92;
+  }
+  .ab-cover h1 em { color: var(--orange); font-style: italic; }
+  .ab-cover .sub {
+    margin-top: 32px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255,252,235,0.7);
+    max-width: 520px;
+  }
+  .ab-cover .specs {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 48px;
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 0.5px solid rgba(255,252,235,0.15);
+  }
+  .ab-cover .specs .k { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,252,235,0.5); margin-bottom: 6px; }
+  .ab-cover .specs .v { font-family: 'Fraunces', serif; font-size: 19px; font-variation-settings: 'opsz' 60; font-weight: 400; }
+
+  /* === SECTION HEADERS === */
+  .ab-section {
+    margin-bottom: 80px;
+  }
+  .ab-section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 0.5px solid var(--rule);
+    padding-bottom: 18px;
+    margin-bottom: 40px;
+  }
+  .ab-section-head .num { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .ab-section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 320;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .ab-section-head h2 em { color: var(--orange); font-style: italic; }
+
+  /* === DESIGN SYSTEM CARDS === */
+  .ds-card {
+    background: var(--ivory);
+    border-radius: var(--r-lg);
+    padding: 40px;
+    margin-bottom: 24px;
+  }
+  .ds-card-dark {
+    background: var(--ink);
+    color: var(--ivory);
+  }
+  .ds-card .ds-label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+  .ds-card-dark .ds-label { color: rgba(255,252,235,0.5); }
+
+  /* === LOGO SHOWCASE === */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 24px;
+  }
+  .logo-tile {
+    border-radius: var(--r-lg);
+    aspect-ratio: 4/3;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .logo-tile.dark { background: var(--ink); }
+  .logo-tile.cream { background: var(--ivory); border: 0.5px solid var(--rule); }
+  .logo-tile.bone { background: var(--bone); border: 0.5px solid var(--rule); }
+  .logo-tile.teal { background: var(--teal); }
+  .logo-tile.orange { background: var(--orange); }
+  .logo-tile img { width: 50%; max-width: 200px; }
+  .logo-tile.cream img { mix-blend-mode: multiply; filter: invert(1); }
+  .logo-tile.bone img { mix-blend-mode: multiply; filter: invert(1); }
+  .logo-tile.teal img { filter: brightness(0) saturate(100%) invert(85%) sepia(8%) saturate(545%) hue-rotate(8deg) brightness(105%) contrast(96%); }
+  .logo-tile.orange img { filter: brightness(0) saturate(100%) invert(96%) sepia(31%) saturate(346%) hue-rotate(0deg) brightness(105%) contrast(98%); }
+  .logo-tile .tile-label {
+    position: absolute;
+    bottom: 16px; left: 16px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .logo-tile.dark .tile-label, .logo-tile.teal .tile-label { color: var(--ivory); }
+  .logo-tile.orange .tile-label { color: var(--ivory); }
+
+  .logo-rules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+  }
+  .rule-card {
+    background: var(--bone);
+    border-radius: var(--r-md);
+    padding: 24px;
+    border: 0.5px solid var(--rule);
+  }
+  .rule-card .h { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .rule-card .t { font-family: 'Fraunces', serif; font-size: 19px; font-variation-settings: 'opsz' 60; line-height: 1.3; font-weight: 400; }
+
+  /* === COLOR PALETTE === */
+  .palette {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+  }
+  .swatch {
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 0.5px solid var(--rule);
+  }
+  .swatch .well { aspect-ratio: 1/1.1; }
+  .swatch .meta { padding: 14px 14px 16px; background: var(--ivory); }
+  .swatch .name { font-family: 'Fraunces', serif; font-size: 16px; font-variation-settings: 'opsz' 60; font-weight: 400; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .swatch .hex { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--muted); }
+  .swatch .role { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 8px; font-family: 'Geist Mono', monospace; }
+
+  .palette-rules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  /* === TYPOGRAPHY === */
+  .type-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 32px 0;
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .type-grid:last-child { border-bottom: none; }
+  .type-grid .left {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .type-grid .left .role { color: var(--ink); margin-bottom: 6px; display: block; }
+  .type-spec { font-size: 10px; letter-spacing: 0.06em; text-transform: none; }
+
+  .type-display { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 96px; font-weight: 320; line-height: 0.95; letter-spacing: -0.025em; }
+  .type-display em { color: var(--orange); font-style: italic; }
+  .type-h1 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 64px; font-weight: 320; line-height: 1; letter-spacing: -0.02em; }
+  .type-h2 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 60, 'SOFT' 100; font-size: 40px; font-weight: 360; line-height: 1.05; letter-spacing: -0.015em; }
+  .type-h3 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 60, 'SOFT' 100; font-size: 28px; font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; }
+  .type-lede { font-family: 'Geist', sans-serif; font-size: 19px; line-height: 1.55; font-weight: 400; color: var(--ink); }
+  .type-body { font-family: 'Geist', sans-serif; font-size: 16px; line-height: 1.65; color: var(--charcoal); }
+  .type-small { font-family: 'Geist', sans-serif; font-size: 14px; line-height: 1.55; color: var(--muted); }
+  .type-mono { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+  /* === COMPONENTS SECTION === */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .comp-card {
+    background: var(--ivory);
+    border-radius: var(--r-lg);
+    padding: 32px;
+    min-height: 200px;
+  }
+  .comp-card .h {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .comp-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .comp-stack > * + * { margin-top: 14px; }
+
+  /* === BUTTONS === */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    border-radius: var(--r-pill);
+    font-family: 'Geist', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0.5px solid transparent;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .btn-primary { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+  .btn-primary:hover { background: var(--orange); border-color: var(--orange); }
+  .btn-secondary { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: var(--ivory); }
+  .btn-ghost { background: transparent; color: var(--ink); border: none; padding: 12px 0; }
+  .btn-ghost:hover { color: var(--orange); }
+  .btn-orange { background: var(--orange); color: var(--ivory); border-color: var(--orange); }
+  .btn-orange:hover { background: #B04600; border-color: #B04600; }
+
+  /* === FORM ELEMENTS === */
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .field label { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .field input, .field textarea, .field select {
+    background: transparent;
+    border: none;
+    border-bottom: 0.5px solid var(--ink);
+    padding: 8px 0;
+    font-family: 'Geist', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .field input:focus, .field textarea:focus { border-color: var(--orange); }
+  .field textarea { resize: vertical; min-height: 60px; }
+
+  /* === FRAMES (screen mockups) === */
+  .frame-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 60px 0 16px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .frame-meta .name { display: flex; gap: 12px; align-items: center; }
+  .frame-meta .name .badge { background: var(--ink); color: var(--ivory); padding: 4px 10px; border-radius: var(--r-sm); font-size: 9px; }
+  .frame-meta .dims { color: var(--muted); }
+
+  .frame-desktop {
+    background: var(--bone);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    border: 0.5px solid var(--rule);
+    box-shadow: 0 30px 60px rgba(16,16,20,0.08);
+  }
+
+  .frame-mobile-row {
+    display: flex;
+    gap: 32px;
+    overflow-x: auto;
+    padding: 8px 0 32px;
+    scroll-snap-type: x mandatory;
+  }
+  .frame-mobile-row::-webkit-scrollbar { height: 8px; }
+  .frame-mobile-row::-webkit-scrollbar-track { background: rgba(16,16,20,0.05); border-radius: var(--r-sm); }
+  .frame-mobile-row::-webkit-scrollbar-thumb { background: var(--ink); border-radius: var(--r-sm); }
+
+  .frame-mobile {
+    flex-shrink: 0;
+    width: 390px;
+    background: var(--bone);
+    border-radius: 36px;
+    overflow: hidden;
+    border: 8px solid var(--ink);
+    box-shadow: 0 30px 60px rgba(16,16,20,0.18);
+    height: 844px;
+    overflow-y: auto;
+    scroll-snap-align: start;
+    position: relative;
+  }
+  .frame-mobile::-webkit-scrollbar { width: 0; }
+
+  /* === SHARED SCREEN STYLES === */
+  .scr {
+    background: var(--bone);
+    color: var(--ink);
+    font-family: 'Geist', sans-serif;
+  }
+  .scr a { color: inherit; text-decoration: none; }
+
+  /* Desktop scaling: render at full size inside frame, frame max-width 1280px */
+  .frame-desktop .scr { font-size: 14px; }
+
+  /* Mobile screens use smaller base */
+  .frame-mobile .scr { font-size: 13px; }
+
+  /* === SCREEN: NAV === */
+  .scr-nav {
+    padding: 18px 32px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    border-bottom: 0.5px solid var(--rule);
+    background: var(--bone);
+  }
+  .scr-nav .brand-mark { display: flex; align-items: center; gap: 10px; }
+  .scr-nav .brand-mark .mark { width: 32px; height: 32px; background: var(--ink); border-radius: 50%; display: grid; place-items: center; overflow: hidden; }
+  .scr-nav .brand-mark .mark img { width: 80%; }
+  .scr-nav .brand-mark .name { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 60, 'SOFT' 100; font-size: 16px; font-weight: 400; }
+  .scr-nav .brand-mark .name em { color: var(--orange); font-style: italic; }
+  .scr-nav .scr-meta { display: flex; gap: 20px; justify-content: center; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .scr-nav .scr-meta b { color: var(--ink); font-weight: 400; }
+  .scr-nav ul { list-style: none; display: flex; gap: 22px; justify-content: flex-end; align-items: center; font-size: 12px; }
+  .scr-nav ul a.active { color: var(--orange); }
+  .scr-nav .nav-book { background: var(--ink); color: var(--ivory); padding: 8px 16px; border-radius: var(--r-pill); font-size: 11px; letter-spacing: 0.04em; }
+
+  /* === SCREEN: FOOTER === */
+  .scr-foot {
+    background: var(--ink);
+    color: var(--ivory);
+    padding: 80px 32px 32px;
+    margin-top: 60px;
+  }
+  .scr-foot .top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 60px;
+    border-bottom: 0.5px solid rgba(255,252,235,0.15);
+  }
+  .scr-foot h4 { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,252,235,0.5); margin-bottom: 18px; font-weight: 400; }
+  .scr-foot .word { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 48px; font-weight: 320; line-height: 0.95; letter-spacing: -0.02em; }
+  .scr-foot .word em { color: var(--orange); font-style: italic; }
+  .scr-foot .word .small { display: block; font-size: 11px; font-style: normal; color: rgba(255,252,235,0.5); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 18px; font-family: 'Geist Mono', monospace; }
+  .scr-foot ul { list-style: none; }
+  .scr-foot li { margin-bottom: 8px; font-size: 12px; opacity: 0.85; }
+  .scr-foot address { font-style: normal; color: rgba(255,252,235,0.7); font-size: 12px; line-height: 1.7; }
+  .scr-foot .bot {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,252,235,0.5);
+  }
+  .scr-foot .massive {
+    margin-top: 50px;
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+    font-size: 168px;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: rgba(255,252,235,0.07);
+    font-weight: 320;
+    text-align: center;
+    overflow: hidden;
+  }
+  .scr-foot .massive em { color: rgba(204,85,0,0.18); font-style: italic; }
+
+  /* === SCREEN: HERO === */
+  .scr-hero {
+    padding: 80px 32px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 32px;
+    align-items: end;
+    min-height: 540px;
+    position: relative;
+  }
+  .scr-hero .index { position: absolute; top: 70px; left: 32px; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .scr-hero h1 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 124px; font-weight: 320; line-height: 0.94; letter-spacing: -0.025em; margin-top: 30px; }
+  .scr-hero h1 em { color: var(--orange); font-style: italic; }
+  .scr-hero p { max-width: 360px; margin-top: 24px; font-size: 15px; line-height: 1.55; color: var(--charcoal); }
+  .scr-hero .img-frame { aspect-ratio: 4/5; overflow: hidden; }
+  .scr-hero .img-frame img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.92); }
+
+  /* === SCREEN: TICKER === */
+  .scr-ticker {
+    border-top: 0.5px solid var(--rule);
+    border-bottom: 0.5px solid var(--rule);
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    gap: 50px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-left: 50px;
+  }
+  .scr-ticker .dot { width: 4px; height: 4px; background: var(--orange); border-radius: 50%; align-self: center; }
+  .scr-ticker > span { display: inline-flex; gap: 50px; align-items: center; flex-shrink: 0; }
+
+  /* === SCREEN: MANIFESTO === */
+  .scr-manifesto { padding: 100px 32px; display: grid; grid-template-columns: 1fr 2fr; gap: 60px; }
+  .scr-manifesto .label { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .scr-manifesto .lead { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 38px; line-height: 1.1; font-weight: 350; letter-spacing: -0.015em; }
+  .scr-manifesto .lead em { color: var(--orange); font-style: italic; }
+  .scr-manifesto .body { color: var(--charcoal); font-size: 15px; line-height: 1.65; max-width: 520px; margin-top: 20px; }
+
+  /* === SCREEN: SERVICES TEASER === */
+  .scr-services-teaser { padding: 60px 32px 100px; border-top: 0.5px solid var(--rule); }
+  .scr-services-teaser .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 50px; }
+  .scr-services-teaser .head h2 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 80px; font-weight: 320; letter-spacing: -0.02em; line-height: 1; }
+  .scr-services-teaser .head h2 em { color: var(--orange); font-style: italic; }
+  .scr-services-teaser .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 0.5px solid var(--rule); }
+  .scr-svc-card { padding: 24px 20px; border-right: 0.5px solid var(--rule); display: flex; flex-direction: column; }
+  .scr-svc-card:last-child { border-right: none; }
+  .scr-svc-card .num { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 18px; }
+  .scr-svc-card .img { aspect-ratio: 1/1; background: var(--paper-warm); overflow: hidden; margin-bottom: 18px; }
+  .scr-svc-card .img img { width: 100%; height: 100%; object-fit: cover; }
+  .scr-svc-card h3 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 60, 'SOFT' 100; font-size: 22px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 10px; }
+  .scr-svc-card p { color: var(--muted); font-size: 13px; line-height: 1.55; flex: 1; }
+  .scr-svc-card .read { margin-top: 16px; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* === SCREEN: WORK === */
+  .scr-work { padding: 60px 32px 100px; border-top: 0.5px solid var(--rule); }
+  .scr-work .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 40px; }
+  .scr-work .head h2 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 80px; font-weight: 320; letter-spacing: -0.02em; line-height: 1; }
+  .scr-work .head h2 em { color: var(--orange); font-style: italic; }
+  .scr-work .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+  .scr-work .proj { display: flex; flex-direction: column; gap: 10px; }
+  .scr-work .proj .frame { aspect-ratio: 4/5; overflow: hidden; background: var(--paper-warm); }
+  .scr-work .proj .frame.type { background: var(--ink); color: var(--ivory); display: grid; place-items: center; padding: 24px; text-align: center; }
+  .scr-work .proj .frame.type-light { background: var(--paper-warm); color: var(--ink); }
+  .scr-work .proj .frame.type span { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-style: italic; font-size: 36px; line-height: 0.95; font-weight: 360; }
+  .scr-work .proj .frame.type span em { color: var(--orange); }
+  .scr-work .proj img { width: 100%; height: 100%; object-fit: cover; }
+  .scr-work .proj .meta { display: flex; justify-content: space-between; gap: 8px; }
+  .scr-work .proj h4 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 60; font-size: 16px; font-weight: 400; }
+  .scr-work .proj .cat { font-family: 'Geist Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .scr-work .proj.large { grid-column: span 7; }
+  .scr-work .proj.large .frame { aspect-ratio: 7/5; }
+  .scr-work .proj.medium { grid-column: span 5; }
+  .scr-work .proj.medium .frame { aspect-ratio: 1/1; }
+  .scr-work .proj.small { grid-column: span 4; }
+
+  /* === SCREEN: STUDIO RENTAL DARK === */
+  .scr-studio-dark { background: var(--ink); color: var(--ivory); padding: 100px 32px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: center; }
+  .scr-studio-dark .img-frame { aspect-ratio: 4/5; overflow: hidden; }
+  .scr-studio-dark .img-frame img { width: 100%; height: 100%; object-fit: cover; }
+  .scr-studio-dark .label { color: rgba(255,252,235,0.55); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 22px; display: flex; align-items: center; gap: 12px; font-family: 'Geist Mono', monospace; }
+  .scr-studio-dark .label::before { content: ""; width: 28px; height: 0.5px; background: rgba(255,252,235,0.4); }
+  .scr-studio-dark h2 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 96px; font-weight: 320; line-height: 0.95; letter-spacing: -0.025em; margin-bottom: 24px; }
+  .scr-studio-dark h2 em { color: var(--orange); font-style: italic; }
+  .scr-studio-dark p { max-width: 420px; color: rgba(255,252,235,0.7); font-size: 15px; line-height: 1.6; margin-bottom: 30px; }
+  .scr-studio-dark .specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; border-top: 0.5px solid rgba(255,252,235,0.2); padding-top: 22px; margin-bottom: 30px; }
+  .scr-studio-dark .specs .k { font-family: 'Geist Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,252,235,0.5); margin-bottom: 6px; }
+  .scr-studio-dark .specs .v { font-family: 'Fraunces', serif; font-size: 22px; font-variation-settings: 'opsz' 60; font-weight: 400; }
+  .scr-studio-dark .cta { display: inline-flex; gap: 14px; padding: 13px 22px; background: var(--ivory); color: var(--ink); border-radius: var(--r-pill); font-size: 12px; }
+
+  /* === PAGE-SPECIFIC: SERVICES === */
+  .scr-svc-detail { padding: 60px 32px 100px; }
+  .scr-svc-detail .row { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; padding: 60px 0; border-bottom: 0.5px solid var(--rule); align-items: start; }
+  .scr-svc-detail .row:first-of-type { border-top: 0.5px solid var(--rule); }
+  .scr-svc-detail .row .num-display { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-style: italic; font-size: 96px; color: var(--orange); line-height: 1; font-weight: 360; }
+  .scr-svc-detail .row .label { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+  .scr-svc-detail .row h3 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 56px; font-weight: 340; letter-spacing: -0.02em; line-height: 1; margin-bottom: 24px; }
+  .scr-svc-detail .row h3 em { color: var(--orange); font-style: italic; }
+  .scr-svc-detail .row .lede { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 60, 'SOFT' 100; font-size: 22px; line-height: 1.4; font-weight: 400; margin-bottom: 28px; max-width: 540px; }
+  .scr-svc-detail .row .body { font-size: 14px; line-height: 1.65; color: var(--charcoal); max-width: 540px; margin-bottom: 28px; }
+  .scr-svc-detail .row .includes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 24px; max-width: 540px; margin-bottom: 32px; padding-top: 20px; border-top: 0.5px solid var(--rule); }
+  .scr-svc-detail .row .includes li { font-size: 13px; list-style: none; padding-left: 18px; position: relative; }
+  .scr-svc-detail .row .includes li::before { content: "—"; position: absolute; left: 0; color: var(--orange); }
+  .scr-svc-detail .row .price-row { display: flex; align-items: baseline; gap: 24px; padding-top: 20px; border-top: 0.5px solid var(--rule); }
+  .scr-svc-detail .row .price-row .price { font-family: 'Fraunces', serif; font-style: italic; font-size: 32px; font-variation-settings: 'opsz' 60; }
+  .scr-svc-detail .row .price-row .price em { color: var(--orange); }
+  .scr-svc-detail .row .price-row .price span { font-size: 13px; color: var(--muted); margin-left: 4px; font-style: normal; }
+
+  /* === PAGE-SPECIFIC: STUDIO === */
+  .scr-studio-hero { padding: 80px 32px 60px; }
+  .scr-studio-hero .top { display: grid; grid-template-columns: 1fr auto; align-items: end; margin-bottom: 50px; padding-bottom: 24px; border-bottom: 0.5px solid var(--rule); }
+  .scr-studio-hero h1 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 152px; font-weight: 320; letter-spacing: -0.025em; line-height: 0.92; }
+  .scr-studio-hero h1 em { color: var(--orange); font-style: italic; }
+  .scr-studio-hero .top .right { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-align: right; }
+  .scr-studio-hero .top .right .rate { font-family: 'Fraunces', serif; font-size: 38px; color: var(--ink); font-style: italic; font-variation-settings: 'opsz' 60; line-height: 1; margin-top: 4px; text-transform: none; letter-spacing: 0; }
+  .scr-studio-hero .gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; aspect-ratio: 16/9; }
+  .scr-studio-hero .gallery > div { overflow: hidden; background: var(--paper-warm); }
+  .scr-studio-hero .gallery > div img { width: 100%; height: 100%; object-fit: cover; }
+  .scr-studio-hero .gallery .big { grid-row: span 2; }
+
+  .scr-studio-includes { padding: 80px 32px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+  .scr-studio-includes h2 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 56px; font-weight: 340; letter-spacing: -0.02em; line-height: 1; }
+  .scr-studio-includes h2 em { color: var(--orange); font-style: italic; }
+  .scr-studio-includes .label { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  .scr-studio-includes ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .scr-studio-includes li { padding: 18px 0; border-bottom: 0.5px solid var(--rule); display: flex; gap: 16px; align-items: baseline; }
+  .scr-studio-includes li:nth-child(2n+1) { padding-right: 24px; }
+  .scr-studio-includes li:nth-child(2n) { padding-left: 24px; border-left: 0.5px solid var(--rule); }
+  .scr-studio-includes li .lnum { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--orange); letter-spacing: 0.05em; }
+  .scr-studio-includes li .ln { font-family: 'Fraunces', serif; font-size: 17px; font-variation-settings: 'opsz' 60; font-weight: 400; }
+  .scr-studio-includes li .ld { display: block; font-family: 'Geist', sans-serif; font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  .scr-studio-book { background: var(--ink); color: var(--ivory); padding: 80px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .scr-studio-book h2 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 64px; font-weight: 340; letter-spacing: -0.02em; line-height: 1; margin-bottom: 24px; }
+  .scr-studio-book h2 em { color: var(--orange); font-style: italic; }
+  .scr-studio-book p { color: rgba(255,252,235,0.7); margin-bottom: 24px; max-width: 380px; font-size: 15px; line-height: 1.6; }
+  .scr-studio-book .calendar { background: rgba(255,252,235,0.05); border: 0.5px solid rgba(255,252,235,0.18); border-radius: var(--r-md); padding: 24px; }
+  .scr-studio-book .cal-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 0.5px solid rgba(255,252,235,0.15); }
+  .scr-studio-book .cal-head .m { font-family: 'Fraunces', serif; font-style: italic; font-size: 22px; font-variation-settings: 'opsz' 60; }
+  .scr-studio-book .cal-head .nav { display: flex; gap: 8px; font-family: 'Geist Mono', monospace; font-size: 11px; }
+  .scr-studio-book .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .scr-studio-book .cal-grid .h { font-family: 'Geist Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,252,235,0.4); padding: 6px 0; text-align: center; }
+  .scr-studio-book .cal-grid .d { aspect-ratio: 1/1; display: grid; place-items: center; font-size: 12px; border-radius: 4px; cursor: pointer; }
+  .scr-studio-book .cal-grid .d:hover:not(.muted) { background: rgba(255,252,235,0.1); }
+  .scr-studio-book .cal-grid .d.muted { opacity: 0.25; }
+  .scr-studio-book .cal-grid .d.sel { background: var(--orange); color: var(--ivory); }
+  .scr-studio-book .cal-grid .d.dot { position: relative; }
+  .scr-studio-book .cal-grid .d.dot::after { content: ""; position: absolute; bottom: 4px; width: 3px; height: 3px; border-radius: 50%; background: var(--orange); }
+
+  /* === PAGE-SPECIFIC: PORTFOLIO === */
+  .scr-port-hero { padding: 80px 32px 32px; }
+  .scr-port-hero .top { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 24px; border-bottom: 0.5px solid var(--rule); margin-bottom: 32px; }
+  .scr-port-hero h1 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 132px; font-weight: 320; letter-spacing: -0.025em; line-height: 0.92; }
+  .scr-port-hero h1 em { color: var(--orange); font-style: italic; }
+  .scr-port-hero .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .scr-port-hero .filters .pill { padding: 8px 16px; border: 0.5px solid var(--rule); border-radius: var(--r-pill); font-size: 11px; letter-spacing: 0.04em; cursor: pointer; transition: all 0.3s; }
+  .scr-port-hero .filters .pill.active { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+  .scr-port-hero .filters .count { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--muted); margin-left: auto; align-self: center; }
+
+  .scr-port-grid { padding: 24px 32px 80px; }
+  .scr-port-grid .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+  .scr-port-grid .p { display: flex; flex-direction: column; gap: 12px; }
+  .scr-port-grid .p .fr { overflow: hidden; background: var(--paper-warm); }
+  .scr-port-grid .p .fr.type { background: var(--ink); color: var(--ivory); display: grid; place-items: center; padding: 24px; text-align: center; }
+  .scr-port-grid .p .fr.type-orange { background: var(--orange); color: var(--ivory); }
+  .scr-port-grid .p .fr.type-teal { background: var(--teal); color: var(--ivory); }
+  .scr-port-grid .p .fr.type span { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144; font-style: italic; font-size: 32px; line-height: 0.95; font-weight: 360; }
+  .scr-port-grid .p .fr img { width: 100%; height: 100%; object-fit: cover; }
+  .scr-port-grid .p h4 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 60; font-size: 17px; font-weight: 400; letter-spacing: -0.01em; }
+  .scr-port-grid .p .meta { display: flex; justify-content: space-between; font-family: 'Geist Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .scr-port-grid .p.l { grid-column: span 6; }
+  .scr-port-grid .p.l .fr { aspect-ratio: 6/5; }
+  .scr-port-grid .p.m { grid-column: span 6; }
+  .scr-port-grid .p.m .fr { aspect-ratio: 6/5; }
+  .scr-port-grid .p.s { grid-column: span 4; }
+  .scr-port-grid .p.s .fr { aspect-ratio: 4/5; }
+  .scr-port-grid .p.t { grid-column: span 8; }
+  .scr-port-grid .p.t .fr { aspect-ratio: 8/5; }
+
+  /* === PAGE-SPECIFIC: CONTACT === */
+  .scr-contact-hero { padding: 80px 32px 0; }
+  .scr-contact-hero h1 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 152px; font-weight: 320; letter-spacing: -0.025em; line-height: 0.9; }
+  .scr-contact-hero h1 em { color: var(--orange); font-style: italic; }
+  .scr-contact-hero .lede { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 60, 'SOFT' 100; font-size: 24px; max-width: 600px; margin-top: 28px; line-height: 1.35; padding-bottom: 32px; border-bottom: 0.5px solid var(--rule); }
+
+  .scr-contact-body { padding: 60px 32px 80px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; }
+  .scr-contact-body .form-card { background: var(--ivory); border-radius: var(--r-lg); padding: 40px; }
+  .scr-contact-body .form-card h3 { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 60, 'SOFT' 100; font-size: 28px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 28px; }
+  .scr-contact-body .form-card h3 em { color: var(--orange); font-style: italic; }
+  .scr-contact-body .form-card .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .scr-contact-body .form-card .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
+  .scr-contact-body .form-card .chips .c { padding: 6px 12px; border: 0.5px solid var(--rule); border-radius: var(--r-pill); font-size: 11px; cursor: pointer; }
+  .scr-contact-body .form-card .chips .c.on { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+  .scr-contact-body .form-card button { margin-top: 20px; padding: 14px 24px; background: var(--ink); color: var(--ivory); border: none; border-radius: var(--r-pill); font-size: 13px; cursor: pointer; display: inline-flex; gap: 12px; align-items: center; font-family: inherit; }
+
+  .scr-contact-side .ci-card { background: var(--ivory); border-radius: var(--r-lg); padding: 32px; margin-bottom: 16px; }
+  .scr-contact-side .ci-card.dark { background: var(--ink); color: var(--ivory); }
+  .scr-contact-side .ci-card .label { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+  .scr-contact-side .ci-card.dark .label { color: rgba(255,252,235,0.5); }
+  .scr-contact-side .ci-card .v { font-family: 'Fraunces', serif; font-size: 24px; font-variation-settings: 'opsz' 60; font-weight: 400; line-height: 1.2; }
+  .scr-contact-side .ci-card .v em { color: var(--orange); font-style: italic; }
+  .scr-contact-side .ci-card address { font-style: normal; line-height: 1.7; color: var(--charcoal); font-size: 14px; margin-top: 4px; }
+  .scr-contact-side .ci-card.dark address { color: rgba(255,252,235,0.7); }
+  .scr-contact-side .map { background: var(--teal); aspect-ratio: 1/1; border-radius: var(--r-lg); position: relative; overflow: hidden; padding: 24px; color: var(--ivory); display: flex; flex-direction: column; justify-content: space-between; }
+  .scr-contact-side .map .map-bg { position: absolute; inset: 0; opacity: 0.18; background-image: linear-gradient(rgba(255,252,235,0.4) 0.5px, transparent 0.5px), linear-gradient(90deg, rgba(255,252,235,0.4) 0.5px, transparent 0.5px); background-size: 22px 22px; }
+  .scr-contact-side .map .pin { position: absolute; top: 50%; left: 60%; width: 14px; height: 14px; background: var(--orange); border-radius: 50%; box-shadow: 0 0 0 6px rgba(204,85,0,0.25); transform: translate(-50%,-50%); }
+  .scr-contact-side .map .pin::after { content: ""; position: absolute; top: 14px; left: 50%; width: 0.5px; height: 36px; background: var(--orange); transform: translateX(-50%); }
+  .scr-contact-side .map .label { color: rgba(255,252,235,0.5); position: relative; z-index: 1; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .scr-contact-side .map .place { font-family: 'Fraunces', serif; font-style: italic; font-size: 22px; font-variation-settings: 'opsz' 60; position: relative; z-index: 1; }
+  .scr-contact-side .map .place em { color: var(--orange); }
+
+  /* ==== MOBILE-specific overrides for screens ==== */
+  .frame-mobile .scr { font-size: 13px; }
+  .frame-mobile .scr-nav { padding: 14px 16px; grid-template-columns: 1fr auto; }
+  .frame-mobile .scr-nav .scr-meta { display: none; }
+  .frame-mobile .scr-nav ul { display: none; }
+  .frame-mobile .scr-nav .ham { width: 24px; height: 14px; position: relative; }
+  .frame-mobile .scr-nav .ham span { position: absolute; left: 0; right: 0; height: 0.5px; background: var(--ink); }
+  .frame-mobile .scr-nav .ham span:nth-child(1) { top: 3px; }
+  .frame-mobile .scr-nav .ham span:nth-child(2) { top: 10px; }
+
+  .frame-mobile .scr-hero { grid-template-columns: 1fr; padding: 60px 16px 30px; min-height: auto; gap: 22px; }
+  .frame-mobile .scr-hero .index { top: 50px; left: 16px; font-size: 9px; }
+  .frame-mobile .scr-hero h1 { font-size: 56px; margin-top: 18px; }
+  .frame-mobile .scr-hero p { font-size: 13px; margin-top: 16px; }
+  .frame-mobile .scr-hero .img-frame { aspect-ratio: 3/4; }
+
+  .frame-mobile .scr-ticker { font-size: 9px; padding: 10px 0 10px 16px; gap: 28px; }
+  .frame-mobile .scr-ticker > span { gap: 28px; }
+
+  .frame-mobile .scr-manifesto { grid-template-columns: 1fr; padding: 50px 16px; gap: 22px; }
+  .frame-mobile .scr-manifesto .lead { font-size: 24px; }
+  .frame-mobile .scr-manifesto .body { font-size: 13px; max-width: 100%; }
+
+  .frame-mobile .scr-services-teaser { padding: 40px 0 60px; }
+  .frame-mobile .scr-services-teaser .head { padding: 0 16px; flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 28px; }
+  .frame-mobile .scr-services-teaser .head h2 { font-size: 48px; }
+  .frame-mobile .scr-services-teaser .grid { grid-template-columns: 1fr; }
+  .frame-mobile .scr-svc-card { border-right: none; border-bottom: 0.5px solid var(--rule); padding: 22px 16px; }
+  .frame-mobile .scr-svc-card:last-child { border-bottom: none; }
+  .frame-mobile .scr-svc-card .img { aspect-ratio: 16/9; }
+
+  .frame-mobile .scr-work { padding: 40px 16px 60px; }
+  .frame-mobile .scr-work .head { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 24px; }
+  .frame-mobile .scr-work .head h2 { font-size: 48px; }
+  .frame-mobile .scr-work .grid { grid-template-columns: 1fr; gap: 20px; }
+  .frame-mobile .scr-work .proj.large, .frame-mobile .scr-work .proj.medium, .frame-mobile .scr-work .proj.small { grid-column: span 1; }
+  .frame-mobile .scr-work .proj .frame, .frame-mobile .scr-work .proj.large .frame, .frame-mobile .scr-work .proj.medium .frame { aspect-ratio: 4/5; }
+
+  .frame-mobile .scr-studio-dark { grid-template-columns: 1fr; padding: 50px 16px; gap: 22px; }
+  .frame-mobile .scr-studio-dark h2 { font-size: 48px; }
+  .frame-mobile .scr-studio-dark .specs { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .frame-mobile .scr-studio-dark .specs .v { font-size: 18px; }
+  .frame-mobile .scr-studio-dark p { font-size: 13px; }
+
+  .frame-mobile .scr-foot { padding: 50px 16px 24px; margin-top: 40px; }
+  .frame-mobile .scr-foot .top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 28px; }
+  .frame-mobile .scr-foot .word { font-size: 32px; }
+  .frame-mobile .scr-foot .massive { font-size: 76px; margin-top: 24px; }
+  .frame-mobile .scr-foot .bot { flex-direction: column; gap: 6px; align-items: flex-start; }
+
+  .frame-mobile .scr-svc-detail { padding: 30px 16px 60px; }
+  .frame-mobile .scr-svc-detail .row { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
+  .frame-mobile .scr-svc-detail .row .num-display { font-size: 56px; }
+  .frame-mobile .scr-svc-detail .row h3 { font-size: 36px; }
+  .frame-mobile .scr-svc-detail .row .lede { font-size: 17px; }
+  .frame-mobile .scr-svc-detail .row .body { font-size: 13px; }
+  .frame-mobile .scr-svc-detail .row .includes { grid-template-columns: 1fr; gap: 6px; }
+  .frame-mobile .scr-svc-detail .row .price-row { flex-direction: column; gap: 12px; align-items: flex-start; }
+
+  .frame-mobile .scr-studio-hero { padding: 50px 16px 30px; }
+  .frame-mobile .scr-studio-hero .top { grid-template-columns: 1fr; gap: 12px; }
+  .frame-mobile .scr-studio-hero h1 { font-size: 76px; }
+  .frame-mobile .scr-studio-hero .top .right { text-align: left; }
+  .frame-mobile .scr-studio-hero .top .right .rate { font-size: 28px; }
+  .frame-mobile .scr-studio-hero .gallery { aspect-ratio: 4/5; grid-template-rows: 2fr 1fr; }
+
+  .frame-mobile .scr-studio-includes { grid-template-columns: 1fr; padding: 50px 16px; gap: 24px; }
+  .frame-mobile .scr-studio-includes h2 { font-size: 36px; }
+  .frame-mobile .scr-studio-includes ul { grid-template-columns: 1fr; }
+  .frame-mobile .scr-studio-includes li:nth-child(2n+1) { padding-right: 0; }
+  .frame-mobile .scr-studio-includes li:nth-child(2n) { padding-left: 0; border-left: none; }
+
+  .frame-mobile .scr-studio-book { grid-template-columns: 1fr; padding: 50px 16px; gap: 24px; }
+  .frame-mobile .scr-studio-book h2 { font-size: 36px; }
+
+  .frame-mobile .scr-port-hero { padding: 50px 16px 16px; }
+  .frame-mobile .scr-port-hero h1 { font-size: 76px; }
+  .frame-mobile .scr-port-hero .top { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .frame-mobile .scr-port-hero .filters .count { margin-left: 0; }
+  .frame-mobile .scr-port-grid { padding: 16px 16px 50px; }
+  .frame-mobile .scr-port-grid .grid { grid-template-columns: 1fr; gap: 18px; }
+  .frame-mobile .scr-port-grid .p.l, .frame-mobile .scr-port-grid .p.m, .frame-mobile .scr-port-grid .p.s, .frame-mobile .scr-port-grid .p.t { grid-column: span 1; }
+  .frame-mobile .scr-port-grid .p .fr { aspect-ratio: 4/5; }
+
+  .frame-mobile .scr-contact-hero { padding: 50px 16px 0; }
+  .frame-mobile .scr-contact-hero h1 { font-size: 72px; }
+  .frame-mobile .scr-contact-hero .lede { font-size: 17px; padding-bottom: 22px; }
+  .frame-mobile .scr-contact-body { grid-template-columns: 1fr; padding: 30px 16px 50px; gap: 22px; }
+  .frame-mobile .scr-contact-body .form-card { padding: 24px; }
+  .frame-mobile .scr-contact-body .form-card h3 { font-size: 22px; margin-bottom: 18px; }
+  .frame-mobile .scr-contact-body .form-card .row2 { grid-template-columns: 1fr; gap: 4px; }
+  .frame-mobile .scr-contact-side .ci-card { padding: 22px; }
+  .frame-mobile .scr-contact-side .ci-card .v { font-size: 19px; }
+  .frame-mobile .scr-contact-side .map { aspect-ratio: 4/3; }
+
+  /* === SECTION CONNECTORS === */
+  .ab-divider {
+    border: none;
+    height: 0.5px;
+    background: rgba(16,16,20,0.12);
+    margin: 60px 0;
+  }
+
+  /* === RESPONSIVE: artboard itself === */
+  @media (max-width: 768px) {
+    .artboard { padding: 32px 16px 80px; }
+    .ab-cover { padding: 60px 28px; grid-template-columns: 1fr; }
+    .ab-cover .logo-mark { width: 100px; height: 100px; }
+    .ab-cover .specs { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .palette { grid-template-columns: repeat(2, 1fr); }
+    .logo-grid { grid-template-columns: 1fr; }
+    .logo-rules { grid-template-columns: 1fr; }
+    .comp-grid { grid-template-columns: 1fr; }
+    .palette-rules { grid-template-columns: 1fr; }
+    .type-grid { grid-template-columns: 1fr; gap: 16px; }
+    .type-display { font-size: 56px; }
+    .type-h1 { font-size: 44px; }
+    .type-h2 { font-size: 30px; }
+    .ab-section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="artboard">
+
+  <!-- ============= COVER ============= -->
+  <header class="ab-cover">
+    <div>
+      <div class="meta">Document — Design system &amp; artboard · v0.3</div>
+      <h1 class="display">LB Brand <em>Haus</em>.</h1>
+      <p class="sub">A complete brand system and screen library for the new LB Brand Haus website. Visual language, typography, components, and reference layouts for every page across desktop and mobile breakpoints.</p>
+      <div class="specs">
+        <div><div class="k">Client</div><div class="v">LB Brand Haus</div></div>
+        <div><div class="k">Studio</div><div class="v">Gridhouse Digital</div></div>
+        <div><div class="k">Pages</div><div class="v">5 — Home, Services, Studio, Portfolio, Contact</div></div>
+        <div><div class="k">Date</div><div class="v">May 2026</div></div>
+      </div>
+    </div>
+    <div class="logo-mark">
+      <img src="logo.png" alt="LB Brand Haus monogram" />
+    </div>
+  </header>
+
+
+  <!-- ============= 01 / THE MARK ============= -->
+  <section class="ab-section">
+    <div class="ab-section-head">
+      <h2 class="display">The <em>mark</em>.</h2>
+      <span class="num">01 / Brand foundations</span>
+    </div>
+
+    <div class="logo-grid">
+      <div class="logo-tile dark"><img src="logo.png" alt=""/><span class="tile-label">Primary · on Onyx</span></div>
+      <div class="logo-tile cream"><img src="logo.png" alt=""/><span class="tile-label">Reverse · on Ivory</span></div>
+      <div class="logo-tile bone"><img src="logo.png" alt=""/><span class="tile-label">Reverse · on Bone</span></div>
+    </div>
+
+    <div class="logo-grid" style="grid-template-columns: 1fr 1fr; margin-top: 24px;">
+      <div class="logo-tile teal" style="aspect-ratio: 16/9;"><img src="logo.png" alt=""/><span class="tile-label">Tonal · on Teal</span></div>
+      <div class="logo-tile orange" style="aspect-ratio: 16/9;"><img src="logo.png" alt=""/><span class="tile-label">Tonal · on Burnt</span></div>
+    </div>
+
+    <div class="logo-rules">
+      <div class="rule-card">
+        <div class="h">— Clear space</div>
+        <div class="t">Reserve clear space equal to the height of the lowercase <span class="display-italic">b</span> on every side. Never crowd the mark.</div>
+      </div>
+      <div class="rule-card">
+        <div class="h">— Minimum size</div>
+        <div class="t">Never reproduce the mark below 32px on screen or 12mm in print. Below that, the script details break down.</div>
+      </div>
+      <div class="rule-card">
+        <div class="h">— Don't</div>
+        <div class="t">Don't recolor, outline, or add effects. The mark is fixed in form — only the surface beneath it changes.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============= 02 / COLOUR ============= -->
+  <section class="ab-section">
+    <div class="ab-section-head">
+      <h2 class="display">Colour <em>system</em>.</h2>
+      <span class="num">02 / Brand foundations</span>
+    </div>
+
+    <div class="palette">
+      <div class="swatch">
+        <div class="well" style="background: #FFFCEB;"></div>
+        <div class="meta">
+          <div class="name">Ivory</div>
+          <div class="hex">#FFFCEB</div>
+          <div class="role">Primary cream</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="well" style="background: #F2F0E4;"></div>
+        <div class="meta">
+          <div class="name">Bone</div>
+          <div class="hex">#F2F0E4</div>
+          <div class="role">Page surface</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="well" style="background: #CC5500;"></div>
+        <div class="meta">
+          <div class="name">Burnt</div>
+          <div class="hex">#CC5500</div>
+          <div class="role">Signature accent</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="well" style="background: #153534;"></div>
+        <div class="meta">
+          <div class="name">Teal</div>
+          <div class="hex">#153534</div>
+          <div class="role">Deep accent</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="well" style="background: #444457;"></div>
+        <div class="meta">
+          <div class="name">Slate</div>
+          <div class="hex">#444457</div>
+          <div class="role">Quiet support</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="well" style="background: #2D2D2D;"></div>
+        <div class="meta">
+          <div class="name">Charcoal</div>
+          <div class="hex">#2D2D2D</div>
+          <div class="role">Body copy</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="well" style="background: #101014;"></div>
+        <div class="meta">
+          <div class="name">Onyx</div>
+          <div class="hex">#101014</div>
+          <div class="role">Primary dark</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="palette-rules">
+      <div class="rule-card">
+        <div class="h">— Light surfaces</div>
+        <div class="t"><span class="display-italic">Bone</span> is the default page background. Ivory is the elevated surface — cards, modals, forms.</div>
+      </div>
+      <div class="rule-card">
+        <div class="h">— Dark sections</div>
+        <div class="t"><span class="display-italic">Onyx</span> for primary dark moments — hero footers, the Studio rental break. Teal as a tonal alternate.</div>
+      </div>
+      <div class="rule-card">
+        <div class="h">— Burnt orange</div>
+        <div class="t">Used <span class="display-italic">sparingly</span>. Reserved for italics in headlines, CTAs, accents — never as a wash. Punctuation, not paragraph.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============= 03 / TYPOGRAPHY ============= -->
+  <section class="ab-section">
+    <div class="ab-section-head">
+      <h2 class="display"><em>Typography.</em></h2>
+      <span class="num">03 / Brand foundations</span>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-label">— Display · Fraunces (variable)</div>
+      <div class="type-grid">
+        <div class="left"><span class="role">Display XL</span>96 / 90 · 320 weight<br/><span class="type-spec">opsz 144 · SOFT 100</span></div>
+        <div class="type-display">Create. Build. <em>Grow.</em></div>
+      </div>
+      <div class="type-grid">
+        <div class="left"><span class="role">Display H1</span>64 / 64 · 320 weight<br/><span class="type-spec">opsz 144 · SOFT 100</span></div>
+        <div class="type-h1">A space built for <span class="display-italic" style="color:var(--orange)">intention.</span></div>
+      </div>
+      <div class="type-grid">
+        <div class="left"><span class="role">Display H2</span>40 / 42 · 360 weight<br/><span class="type-spec">opsz 60 · SOFT 100</span></div>
+        <div class="type-h2">Selected work, <span class="display-italic" style="color:var(--orange)">on display.</span></div>
+      </div>
+      <div class="type-grid">
+        <div class="left"><span class="role">Display H3</span>28 / 32 · 400 weight<br/><span class="type-spec">opsz 60</span></div>
+        <div class="type-h3">Brand Strategy</div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-label">— Body · Geist Sans</div>
+      <div class="type-grid">
+        <div class="left"><span class="role">Lede</span>19 / 30 · 400 weight</div>
+        <div class="type-lede">A creative studio for brands, creators, and businesses ready to show up clearly and confidently.</div>
+      </div>
+      <div class="type-grid">
+        <div class="left"><span class="role">Body</span>16 / 26 · 400 weight</div>
+        <div class="type-body">From high-end editorial sessions to long-form content systems, every output is built to drive engagement, resonate with your market, and provide the authority your brand deserves.</div>
+      </div>
+      <div class="type-grid">
+        <div class="left"><span class="role">Small</span>14 / 22 · 400 weight</div>
+        <div class="type-small">Standard delivery is 7 to 10 business days for a curated, retouched gallery.</div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-label">— Technical · Geist Mono</div>
+      <div class="type-grid">
+        <div class="left"><span class="role">Mono caps</span>11 / 18 · 0.14em tracking<br/><span class="type-spec">all uppercase</span></div>
+        <div class="type-mono">Index — 03 / Selected work · 51.1° N · Calgary, AB</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============= 04 / COMPONENTS ============= -->
+  <section class="ab-section">
+    <div class="ab-section-head">
+      <h2 class="display">Components &amp; <em>controls</em>.</h2>
+      <span class="num">04 / UI library</span>
+    </div>
+
+    <div class="comp-grid">
+      <!-- BUTTONS -->
+      <div class="comp-card">
+        <div class="h">— Buttons · primary actions</div>
+        <div class="comp-stack">
+          <div class="comp-row">
+            <a class="btn btn-primary" href="#">Book a session →</a>
+            <a class="btn btn-secondary" href="#">Explore the studio</a>
+          </div>
+          <div class="comp-row">
+            <a class="btn btn-orange" href="#">Book the Haus today</a>
+            <a class="btn btn-ghost" href="#">Read more →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- LINKS -->
+      <div class="comp-card">
+        <div class="h">— Links &amp; navigation</div>
+        <div class="comp-stack">
+          <div style="font-size: 14px; display: flex; gap: 24px;">
+            <a href="#" style="color: var(--ink); border-bottom: 0.5px solid var(--ink); padding-bottom: 2px;">Inline link</a>
+            <a href="#" style="color: var(--orange); border-bottom: 0.5px solid var(--orange); padding-bottom: 2px;">Active state</a>
+            <a href="#" style="color: var(--muted);">Muted link</a>
+          </div>
+          <div style="display: flex; gap: 16px; padding-top: 14px; border-top: 0.5px solid var(--rule);">
+            <span class="mono">Index — 01 / Welcome</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="comp-card">
+        <div class="h">— Form fields</div>
+        <div class="field"><label>Full name</label><input type="text" placeholder="Lauren Bélanger" /></div>
+        <div class="field"><label>Email</label><input type="email" placeholder="lauren@maisonbelmont.ca" /></div>
+        <div class="field"><label>Project type</label>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="padding: 6px 12px; border: 0.5px solid var(--rule); border-radius: var(--r-pill); font-size: 11px;">Brand Strategy</span>
+            <span style="padding: 6px 12px; background: var(--ink); color: var(--ivory); border-radius: var(--r-pill); font-size: 11px;">Photography</span>
+            <span style="padding: 6px 12px; border: 0.5px solid var(--rule); border-radius: var(--r-pill); font-size: 11px;">Studio Rental</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD -->
+      <div class="comp-card" style="background: var(--ink); color: var(--ivory);">
+        <div class="h" style="color: rgba(255,252,235,0.5);">— Dark surface card</div>
+        <div style="margin-top: 8px;">
+          <span class="mono" style="color: rgba(255,252,235,0.5);">— 02 / Content</span>
+          <h3 style="font-family: 'Fraunces', serif; font-size: 24px; margin: 14px 0 10px; font-weight: 400;">Editorial photography</h3>
+          <p style="color: rgba(255,252,235,0.7); font-size: 13px; line-height: 1.6;">Intentional sessions for brands who value high-end editorial quality.</p>
+          <div style="margin-top: 18px; display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;">
+            <span>Read more</span>
+            <span style="color: var(--orange);">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <hr class="ab-divider" />
+
+
+  <!-- ============= DESKTOP SCREENS ============= -->
+  <section class="ab-section">
+    <div class="ab-section-head">
+      <h2 class="display">Desktop <em>screens</em>.</h2>
+      <span class="num">05 / 1440 × auto</span>
+    </div>
+
+    <!-- ============= HOME ============= -->
+    <div class="frame-meta">
+      <div class="name"><span class="badge">01</span> Home</div>
+      <div class="dims">/  · 1440 wide</div>
+    </div>
+    <div class="frame-desktop">
+      <div class="scr">
+        <!-- NAV -->
+        <div class="scr-nav">
+          <a class="brand-mark" href="#">
+            <span class="mark"><img src="logo.png" alt=""/></span>
+            <span class="name">LB Brand <em>Haus</em></span>
+          </a>
+          <div class="scr-meta">
+            <span>51.1° N · <b>Calgary, AB</b></span>
+            <span>14:32 MT</span>
+          </div>
+          <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Studio</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#" class="nav-book">Book a session →</a></li>
+          </ul>
+        </div>
+
+        <!-- HERO -->
+        <div class="scr-hero">
+          <div class="index">Index — 01 / Welcome</div>
+          <div>
+            <h1>Create. Build.<br/><em>Grow.</em></h1>
+            <p>A creative studio for brands, creators, and businesses ready to show up clearly and confidently. Editorial photography, brand strategy, and a curated rentable space — built in Calgary, made for everywhere.</p>
+          </div>
+          <div class="img-frame"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/branhaus-calgary-interior-shoot-scaled.jpg" alt="" /></div>
+        </div>
+
+        <!-- TICKER -->
+        <div class="scr-ticker">
+          <span>Studio rental open · $70 / hour <span class="dot"></span></span>
+          <span>Editorial photography <span class="dot"></span></span>
+          <span>Brand strategy <span class="dot"></span></span>
+          <span>Content creation <span class="dot"></span></span>
+          <span>Mon — Sun by appointment <span class="dot"></span></span>
+          <span>New Horizon Mall · H38 <span class="dot"></span></span>
+        </div>
+
+        <!-- MANIFESTO -->
+        <div class="scr-manifesto">
+          <div class="label">— On intention</div>
+          <div>
+            <p class="lead">A space built for <em>intention</em>. Where Calgary brands, storytellers, and creators find their voice — then show it.</p>
+            <p class="body">We don't shoot fast and pray. We sit down, sketch the story, set the room, and produce work that doesn't just photograph well — it earns shelf space in your audience's memory.</p>
+          </div>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="scr-services-teaser">
+          <div class="head">
+            <h2>What we <em>do</em>.</h2>
+            <span class="mono">Index — 02 / Practice</span>
+          </div>
+          <div class="grid">
+            <div class="scr-svc-card">
+              <span class="num">— 01 / Strategy</span>
+              <div class="img"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/lb-brand-haus-guide-scaled.jpg" alt=""/></div>
+              <h3>Brand Strategy</h3>
+              <p>Strategic storytelling designed for growth and market authority. Positioning, tone, and visual direction.</p>
+              <div class="read"><span>Read more</span><span style="color: var(--orange)">→</span></div>
+            </div>
+            <div class="scr-svc-card">
+              <span class="num">— 02 / Content</span>
+              <div class="img"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/LB-Brand-Content-Creation-.webp" alt=""/></div>
+              <h3>Content Creation</h3>
+              <p>Monthly content systems, campaign drops, and long-form editorial — produced in studio, delivered for every channel.</p>
+              <div class="read"><span>Read more</span><span style="color: var(--orange)">→</span></div>
+            </div>
+            <div class="scr-svc-card">
+              <span class="num">— 03 / Photography</span>
+              <div class="img"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/studio-lb-brand-haus-session-with-happy-client.jpg" alt=""/></div>
+              <h3>Photography</h3>
+              <p>Personal brand portraits, product photography, and campaign work — composed and lit with magazine standards.</p>
+              <div class="read"><span>Read more</span><span style="color: var(--orange)">→</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WORK -->
+        <div class="scr-work">
+          <div class="head">
+            <h2>Selected <span class="display-italic" style="color: var(--orange)">work</span>.</h2>
+            <span class="mono">Index — 03 / Portfolio</span>
+          </div>
+          <div class="grid">
+            <div class="proj large">
+              <div class="frame"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/branhaus-calgary-interior-shoot-scaled.jpg" alt=""/></div>
+              <div class="meta"><h4>Maison Belmont</h4><span class="cat">Brand · Photography · 2026</span></div>
+            </div>
+            <div class="proj medium">
+              <div class="frame type"><span>North Forty <em>Coffee</em></span></div>
+              <div class="meta"><h4>North Forty Coffee</h4><span class="cat">Identity · 2025</span></div>
+            </div>
+            <div class="proj small">
+              <div class="frame"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/lb-brand-haus-guide-scaled.jpg" alt=""/></div>
+              <div class="meta"><h4>The Veneration Co.</h4><span class="cat">Content · 2025</span></div>
+            </div>
+            <div class="proj small">
+              <div class="frame type type-light"><span>Studio <em>Mira</em></span></div>
+              <div class="meta"><h4>Studio Mira</h4><span class="cat">Editorial · 2025</span></div>
+            </div>
+            <div class="proj small">
+              <div class="frame"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/LB-Brand-Content-Creation-.webp" alt=""/></div>
+              <div class="meta"><h4>Holt Renfrew Calgary</h4><span class="cat">Campaign · 2024</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STUDIO RENTAL -->
+        <div class="scr-studio-dark">
+          <div class="img-frame"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/studio-lb-brand-haus-session-with-happy-client.jpg" alt=""/></div>
+          <div>
+            <div class="label">Index — 04 / The Haus</div>
+            <h2>Rent the <em>Haus</em>.</h2>
+            <p>A curated, natural-light studio available for photographers, brands, and content creators. Pre-styled sets, professional lighting, and the kind of quiet that only happens by design.</p>
+            <div class="specs">
+              <div><div class="k">Rate</div><div class="v">$70<span style="font-size: 12px; opacity: 0.6">/hr</span></div></div>
+              <div><div class="k">Available</div><div class="v">Mon — Sun</div></div>
+              <div><div class="k">Capacity</div><div class="v">1 — 6</div></div>
+            </div>
+            <a href="#" class="cta">Book the Haus today →</a>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="scr-foot">
+          <div class="top">
+            <div>
+              <h4>Index — 05 / Contact</h4>
+              <p class="word">Let's talk about your <span class="display-italic" style="color: var(--orange)">vision</span>.<span class="small">Open Mon — Sun · By appointment</span></p>
+            </div>
+            <div>
+              <h4>Studio</h4>
+              <ul><li>Services</li><li>The Space</li><li>Portfolio</li><li>Booking</li><li>Journal</li></ul>
+            </div>
+            <div>
+              <h4>Connect</h4>
+              <ul><li>Instagram ↗</li><li>LinkedIn ↗</li><li>Pinterest ↗</li></ul>
+            </div>
+            <div>
+              <h4>Visit</h4>
+              <address>Unit H38, New Horizon Mall<br/>260300 Writing Creek Cres<br/>Balzac, AB T4A 0X8<br/><br/>(368) 599-0012<br/>connect@lbbrandhaus.com</address>
+            </div>
+          </div>
+          <div class="massive">LB Brand <em>Haus</em></div>
+          <div class="bot">
+            <span>© 2026 LB Brand Haus</span>
+            <span>Site by Gridhouse Digital</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ============= SERVICES ============= -->
+    <div class="frame-meta">
+      <div class="name"><span class="badge">02</span> Services</div>
+      <div class="dims">/services · 1440 wide</div>
+    </div>
+    <div class="frame-desktop">
+      <div class="scr">
+        <div class="scr-nav">
+          <a class="brand-mark" href="#"><span class="mark"><img src="logo.png" alt=""/></span><span class="name">LB Brand <em>Haus</em></span></a>
+          <div class="scr-meta"><span>51.1° N · <b>Calgary, AB</b></span><span>14:32 MT</span></div>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#" class="active">Services</a></li>
+            <li><a href="#">Studio</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#" class="nav-book">Book a session →</a></li>
+          </ul>
+        </div>
+
+        <div class="scr-port-hero">
+          <div class="top">
+            <h1 style="font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144, 'SOFT' 100; font-size: 132px; font-weight: 320; letter-spacing: -0.025em; line-height: 0.92;">Our <span class="display-italic" style="color: var(--orange)">services</span>.</h1>
+            <span class="mono">Index — 02 / Practice</span>
+          </div>
+        </div>
+
+        <div class="scr-svc-detail">
+
+          <div class="row">
+            <div>
+              <div class="num-display">01.</div>
+              <div class="label">— Brand Strategy</div>
+            </div>
+            <div>
+              <h3>Brand <em>Strategy</em>.</h3>
+              <p class="lede">Strategic storytelling designed for growth and market authority. We build the spine before we dress the body.</p>
+              <p class="body">A foundational engagement for founders ready to commit to a clear, defensible position in their market. We work through your audience, your competitive landscape, and the gap between how your brand is showing up today and how it needs to show up to grow. The output is a documented strategy your team — and any future creative partner — can execute against.</p>
+              <ul class="includes">
+                <li>Brand audit &amp; competitive review</li>
+                <li>Audience &amp; persona definition</li>
+                <li>Positioning &amp; messaging architecture</li>
+                <li>Tone of voice guidelines</li>
+                <li>Visual direction brief</li>
+                <li>90-day activation roadmap</li>
+              </ul>
+              <div class="price-row">
+                <div class="price"><em>From</em> $4,800<span>· 4 — 6 weeks</span></div>
+                <a class="btn btn-primary" href="#">Book vision session →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <div class="num-display">02.</div>
+              <div class="label">— Content Creation</div>
+            </div>
+            <div>
+              <h3>Content <em>Creation</em>.</h3>
+              <p class="lede">Monthly content systems, campaign drops, and long-form editorial — produced in studio, delivered ready for every channel.</p>
+              <p class="body">For brands that need a steady stream of considered, on-strategy visual and written content. We build a quarterly content plan, shoot in batches at the studio, and deliver a curated package each month. No more last-minute panic posts. No more inconsistent feeds. Just a calm, professional content engine.</p>
+              <ul class="includes">
+                <li>Quarterly content planning</li>
+                <li>Monthly studio shoot day</li>
+                <li>40 — 60 finished assets / month</li>
+                <li>Channel-ready exports</li>
+                <li>Caption &amp; copywriting</li>
+                <li>Performance review every 90 days</li>
+              </ul>
+              <div class="price-row">
+                <div class="price"><em>From</em> $2,400<span>/ month · 6-month minimum</span></div>
+                <a class="btn btn-primary" href="#">Start a conversation →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <div class="num-display">03.</div>
+              <div class="label">— Photography</div>
+            </div>
+            <div>
+              <h3>Editorial <em>Photography</em>.</h3>
+              <p class="lede">Personal brand portraits, product photography, and campaign work — composed and lit with magazine standards.</p>
+              <p class="body">A focused engagement for brands and individuals who need a singular set of high-end visual assets. Includes a vision call to align on aesthetic and deliverables, a half- or full-day session at the studio, and a curated, retouched gallery. Add-ons available for video, BTS reels, and same-day social cuts.</p>
+              <ul class="includes">
+                <li>Pre-shoot vision call</li>
+                <li>Half or full studio day</li>
+                <li>Lighting, styling, direction</li>
+                <li>30 — 80 finished images</li>
+                <li>Retouching included</li>
+                <li>7 — 10 day delivery</li>
+              </ul>
+              <div class="price-row">
+                <div class="price"><em>From</em> $850<span>· half-day session</span></div>
+                <a class="btn btn-primary" href="#">Book a session →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Process strip -->
+        <div class="scr-services-teaser" style="background: var(--paper-warm);">
+          <div class="head">
+            <h2>How we <em>work</em>.</h2>
+            <span class="mono">Index — 06 / Method</span>
+          </div>
+          <div class="grid">
+            <div class="scr-svc-card" style="border-color: rgba(16,16,20,0.1);">
+              <span class="num" style="color: var(--orange); font-style: italic; font-family: 'Fraunces', serif; font-size: 32px; line-height: 1; font-variation-settings: 'opsz' 60;">01</span>
+              <h3 style="margin-top: 18px;">Vision Session</h3>
+              <p>We sit down — in person or via video — to uncover your brand's core story, aesthetic goals, and the message you need to convey. You leave with a creative roadmap and a date on the calendar.</p>
+            </div>
+            <div class="scr-svc-card" style="border-color: rgba(16,16,20,0.1);">
+              <span class="num" style="color: var(--orange); font-style: italic; font-family: 'Fraunces', serif; font-size: 32px; line-height: 1; font-variation-settings: 'opsz' 60;">02</span>
+              <h3 style="margin-top: 18px;">Studio Experience</h3>
+              <p>Step into a curated, natural-light environment built for total focus. We handle lighting, composition, and flow so you can show up as the face of your brand — confident and at ease.</p>
+            </div>
+            <div class="scr-svc-card" style="border-color: rgba(16,16,20,0.1);">
+              <span class="num" style="color: var(--orange); font-style: italic; font-family: 'Fraunces', serif; font-size: 32px; line-height: 1; font-variation-settings: 'opsz' 60;">03</span>
+              <h3 style="margin-top: 18px;">Final Delivery</h3>
+              <p>Within communicated timeframes, you receive a gallery of high-resolution, retouched assets optimized for your channels. Visuals built to drive engagement and earn the authority your brand deserves.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER (reused) -->
+        <div class="scr-foot">
+          <div class="top">
+            <div><h4>Index — 09 / Contact</h4><p class="word">Let's talk about your <span class="display-italic" style="color: var(--orange)">vision</span>.<span class="small">Open Mon — Sun · By appointment</span></p></div>
+            <div><h4>Studio</h4><ul><li>Services</li><li>The Space</li><li>Portfolio</li><li>Booking</li></ul></div>
+            <div><h4>Connect</h4><ul><li>Instagram ↗</li><li>LinkedIn ↗</li><li>Pinterest ↗</li></ul></div>
+            <div><h4>Visit</h4><address>Unit H38, New Horizon Mall<br/>Balzac, AB T4A 0X8<br/><br/>(368) 599-0012<br/>connect@lbbrandhaus.com</address></div>
+          </div>
+          <div class="bot"><span>© 2026 LB Brand Haus</span><span>Site by Gridhouse Digital</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============= STUDIO ============= -->
+    <div class="frame-meta">
+      <div class="name"><span class="badge">03</span> Studio</div>
+      <div class="dims">/studio · 1440 wide</div>
+    </div>
+    <div class="frame-desktop">
+      <div class="scr">
+        <div class="scr-nav">
+          <a class="brand-mark" href="#"><span class="mark"><img src="logo.png" alt=""/></span><span class="name">LB Brand <em>Haus</em></span></a>
+          <div class="scr-meta"><span>51.1° N · <b>Calgary, AB</b></span><span>14:32 MT</span></div>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#" class="active">Studio</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#" class="nav-book">Book a session →</a></li>
+          </ul>
+        </div>
+
+        <div class="scr-studio-hero">
+          <div class="top">
+            <h1>The <em>Haus</em>.</h1>
+            <div class="right">
+              <span class="mono">Studio rental · 1,200 sqft</span>
+              <div class="rate">$70<span style="font-size: 14px; color: var(--muted);">/hr</span></div>
+            </div>
+          </div>
+          <div class="gallery">
+            <div class="big"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/branhaus-calgary-interior-shoot-scaled.jpg" alt=""/></div>
+            <div><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/studio-lb-brand-haus-session-with-happy-client.jpg" alt=""/></div>
+            <div><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/lb-brand-haus-guide-scaled.jpg" alt=""/></div>
+            <div><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/LB-Brand-Content-Creation-.webp" alt=""/></div>
+            <div><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/branhaus-calgary-interior-shoot-scaled.jpg" alt=""/></div>
+          </div>
+        </div>
+
+        <div class="scr-studio-includes">
+          <div>
+            <div class="label">— Index 04 / What's included</div>
+            <h2>Pre-styled, <em>plug-and-play</em>.</h2>
+            <p style="margin-top: 22px; color: var(--charcoal); font-size: 14px; line-height: 1.6; max-width: 280px;">Everything you need is in the room. Bring talent, bring vision — leave the lighting kit at home.</p>
+          </div>
+          <ul>
+            <li><div><span class="lnum">01</span> <span class="ln">Natural-light shooting bay</span><span class="ld">East-facing wall, 11ft of glass, sheer curtain control</span></div></li>
+            <li><div><span class="lnum">02</span> <span class="ln">Profoto B10 lighting kit</span><span class="ld">2 strobes, softboxes, modifiers</span></div></li>
+            <li><div><span class="lnum">03</span> <span class="ln">Backdrop wall</span><span class="ld">Cream, charcoal, and sage in-rotation</span></div></li>
+            <li><div><span class="lnum">04</span> <span class="ln">Styled props library</span><span class="ld">Glassware, linens, plinths, foliage</span></div></li>
+            <li><div><span class="lnum">05</span> <span class="ln">Private changing area</span><span class="ld">Steamer, full-length mirror, vanity</span></div></li>
+            <li><div><span class="lnum">06</span> <span class="ln">High-speed wifi &amp; tethering</span><span class="ld">Capture One ready · live preview to TV</span></div></li>
+          </ul>
+        </div>
+
+        <div class="scr-studio-book">
+          <div>
+            <span class="mono" style="color: rgba(255,252,235,0.5)">— Index 05 / Reserve a slot</span>
+            <h2 style="margin-top: 18px;">Book the <em>Haus</em>.</h2>
+            <p>Pick a date, choose your hours, and you're booked. Cancellations free up to 48 hours before. Same-day rates available for urgent shoots — get in touch.</p>
+            <div style="display: flex; gap: 14px; margin-top: 22px;">
+              <a class="btn btn-orange" href="#" style="background: var(--orange); color: var(--ivory); border-color: var(--orange);">Continue to checkout →</a>
+              <a class="btn" href="#" style="background: transparent; color: var(--ivory); border-color: rgba(255,252,235,0.3);">Email us instead</a>
+            </div>
+          </div>
+          <div class="calendar">
+            <div class="cal-head">
+              <span class="m">May <em>2026</em></span>
+              <div class="nav"><span>←</span><span>→</span></div>
+            </div>
+            <div class="cal-grid">
+              <div class="h">M</div><div class="h">T</div><div class="h">W</div><div class="h">T</div><div class="h">F</div><div class="h">S</div><div class="h">S</div>
+              <div class="d muted">28</div><div class="d muted">29</div><div class="d muted">30</div><div class="d">1</div><div class="d dot">2</div><div class="d dot">3</div><div class="d">4</div>
+              <div class="d">5</div><div class="d dot">6</div><div class="d">7</div><div class="d sel">8</div><div class="d dot">9</div><div class="d">10</div><div class="d">11</div>
+              <div class="d">12</div><div class="d">13</div><div class="d dot">14</div><div class="d">15</div><div class="d">16</div><div class="d dot">17</div><div class="d">18</div>
+              <div class="d">19</div><div class="d dot">20</div><div class="d">21</div><div class="d">22</div><div class="d dot">23</div><div class="d">24</div><div class="d">25</div>
+              <div class="d">26</div><div class="d">27</div><div class="d">28</div><div class="d dot">29</div><div class="d">30</div><div class="d">31</div><div class="d muted">1</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scr-foot">
+          <div class="top">
+            <div><h4>Index — 09 / Contact</h4><p class="word">Let's talk about your <span class="display-italic" style="color: var(--orange)">vision</span>.<span class="small">Open Mon — Sun · By appointment</span></p></div>
+            <div><h4>Studio</h4><ul><li>Services</li><li>The Space</li><li>Portfolio</li><li>Booking</li></ul></div>
+            <div><h4>Connect</h4><ul><li>Instagram ↗</li><li>LinkedIn ↗</li><li>Pinterest ↗</li></ul></div>
+            <div><h4>Visit</h4><address>Unit H38, New Horizon Mall<br/>Balzac, AB T4A 0X8<br/><br/>(368) 599-0012<br/>connect@lbbrandhaus.com</address></div>
+          </div>
+          <div class="bot"><span>© 2026 LB Brand Haus</span><span>Site by Gridhouse Digital</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============= PORTFOLIO ============= -->
+    <div class="frame-meta">
+      <div class="name"><span class="badge">04</span> Portfolio</div>
+      <div class="dims">/portfolio · 1440 wide</div>
+    </div>
+    <div class="frame-desktop">
+      <div class="scr">
+        <div class="scr-nav">
+          <a class="brand-mark" href="#"><span class="mark"><img src="logo.png" alt=""/></span><span class="name">LB Brand <em>Haus</em></span></a>
+          <div class="scr-meta"><span>51.1° N · <b>Calgary, AB</b></span><span>14:32 MT</span></div>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Studio</a></li>
+            <li><a href="#" class="active">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#" class="nav-book">Book a session →</a></li>
+          </ul>
+        </div>
+
+        <div class="scr-port-hero">
+          <div class="top">
+            <h1>Selected <em>work</em>.</h1>
+            <span class="mono">Index — 03 / Portfolio</span>
+          </div>
+          <div class="filters">
+            <div class="pill active">All</div>
+            <div class="pill">Brand Identity</div>
+            <div class="pill">Photography</div>
+            <div class="pill">Editorial</div>
+            <div class="pill">Content System</div>
+            <div class="pill">Campaign</div>
+            <span class="count">— 14 projects</span>
+          </div>
+        </div>
+
+        <div class="scr-port-grid">
+          <div class="grid">
+            <div class="p l">
+              <div class="fr"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/branhaus-calgary-interior-shoot-scaled.jpg" alt=""/></div>
+              <div class="meta"><span>Maison Belmont</span><span>Brand · 2026</span></div>
+              <h4>A heritage Calgary patisserie, refreshed for a new generation.</h4>
+            </div>
+            <div class="p m">
+              <div class="fr type type-orange"><span>North Forty <span class="display-italic">Coffee</span></span></div>
+              <div class="meta"><span>North Forty Coffee</span><span>Identity · 2025</span></div>
+              <h4>From farmer's market table to four-location chain.</h4>
+            </div>
+
+            <div class="p s">
+              <div class="fr"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/lb-brand-haus-guide-scaled.jpg" alt=""/></div>
+              <div class="meta"><span>The Veneration Co.</span><span>Content · 2025</span></div>
+              <h4>Quarterly content system for a wellness studio.</h4>
+            </div>
+            <div class="p s">
+              <div class="fr type"><span>Studio <span class="display-italic" style="color: var(--orange)">Mira</span></span></div>
+              <div class="meta"><span>Studio Mira</span><span>Editorial · 2025</span></div>
+              <h4>Editorial campaign for spring '25 collection.</h4>
+            </div>
+            <div class="p s">
+              <div class="fr"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/LB-Brand-Content-Creation-.webp" alt=""/></div>
+              <div class="meta"><span>Holt Renfrew Calgary</span><span>Campaign · 2024</span></div>
+              <h4>Window display photography series for Q4.</h4>
+            </div>
+
+            <div class="p t">
+              <div class="fr"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/studio-lb-brand-haus-session-with-happy-client.jpg" alt=""/></div>
+              <div class="meta"><span>Atelier Foltz</span><span>Brand · Photography · 2024</span></div>
+              <h4>Personal brand visuals for a Calgary architect.</h4>
+            </div>
+            <div class="p s">
+              <div class="fr type type-teal"><span>Bowness <span class="display-italic">Botanicals</span></span></div>
+              <div class="meta"><span>Bowness Botanicals</span><span>Identity · 2024</span></div>
+              <h4>Identity system for a small-batch herbalist.</h4>
+            </div>
+
+            <div class="p s">
+              <div class="fr"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/lb-brand-haus-guide-scaled.jpg" alt=""/></div>
+              <div class="meta"><span>The Brunch Club YYC</span><span>Content · 2024</span></div>
+              <h4>Monthly content engine for a 3-location restaurant group.</h4>
+            </div>
+            <div class="p s">
+              <div class="fr"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/branhaus-calgary-interior-shoot-scaled.jpg" alt=""/></div>
+              <div class="meta"><span>Lumina Skin Co.</span><span>Photography · 2024</span></div>
+              <h4>Product photography for a Canadian skincare launch.</h4>
+            </div>
+            <div class="p s">
+              <div class="fr type type-light"><span>Hôtel <span class="display-italic" style="color: var(--orange)">Verdure</span></span></div>
+              <div class="meta"><span>Hôtel Verdure</span><span>Brand · 2023</span></div>
+              <h4>Brand identity for a boutique hotel in Banff.</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="scr-foot">
+          <div class="top">
+            <div><h4>Index — 09 / Contact</h4><p class="word">Let's talk about your <span class="display-italic" style="color: var(--orange)">vision</span>.<span class="small">Open Mon — Sun · By appointment</span></p></div>
+            <div><h4>Studio</h4><ul><li>Services</li><li>The Space</li><li>Portfolio</li><li>Booking</li></ul></div>
+            <div><h4>Connect</h4><ul><li>Instagram ↗</li><li>LinkedIn ↗</li><li>Pinterest ↗</li></ul></div>
+            <div><h4>Visit</h4><address>Unit H38, New Horizon Mall<br/>Balzac, AB T4A 0X8<br/><br/>(368) 599-0012<br/>connect@lbbrandhaus.com</address></div>
+          </div>
+          <div class="bot"><span>© 2026 LB Brand Haus</span><span>Site by Gridhouse Digital</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============= CONTACT ============= -->
+    <div class="frame-meta">
+      <div class="name"><span class="badge">05</span> Contact</div>
+      <div class="dims">/contact · 1440 wide</div>
+    </div>
+    <div class="frame-desktop">
+      <div class="scr">
+        <div class="scr-nav">
+          <a class="brand-mark" href="#"><span class="mark"><img src="logo.png" alt=""/></span><span class="name">LB Brand <em>Haus</em></span></a>
+          <div class="scr-meta"><span>51.1° N · <b>Calgary, AB</b></span><span>14:32 MT</span></div>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Studio</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#" class="active">Contact</a></li>
+            <li><a href="#" class="nav-book">Book a session →</a></li>
+          </ul>
+        </div>
+
+        <div class="scr-contact-hero">
+          <span class="mono">Index — 09 / Contact</span>
+          <h1 style="margin-top: 18px;">Let's <em>talk</em>.</h1>
+          <p class="lede">Tell us about your project, your timeline, and what you're hoping to make. We respond to every enquiry within one business day — usually the same afternoon.</p>
+        </div>
+
+        <div class="scr-contact-body">
+          <div class="form-card">
+            <h3>Start a <em>conversation</em>.</h3>
+            <div class="row2">
+              <div class="field"><label>Full name</label><input type="text" placeholder="Lauren Bélanger" /></div>
+              <div class="field"><label>Email</label><input type="email" placeholder="lauren@maisonbelmont.ca" /></div>
+            </div>
+            <div class="row2">
+              <div class="field"><label>Company</label><input type="text" placeholder="Maison Belmont" /></div>
+              <div class="field"><label>Timeline</label><input type="text" placeholder="Q3 2026" /></div>
+            </div>
+            <div class="field">
+              <label>Project type</label>
+              <div class="chips">
+                <span class="c on">Photography</span>
+                <span class="c">Brand Strategy</span>
+                <span class="c">Content System</span>
+                <span class="c">Studio Rental</span>
+                <span class="c">Other</span>
+              </div>
+            </div>
+            <div class="field">
+              <label>Tell us about your project</label>
+              <textarea placeholder="A few sentences on what you're working on, your goals, and any constraints we should know about." rows="4"></textarea>
+            </div>
+            <button>Send enquiry →</button>
+          </div>
+
+          <div class="scr-contact-side">
+            <div class="ci-card">
+              <div class="label">— Email · fastest</div>
+              <div class="v"><em>connect</em>@lbbrandhaus.com</div>
+              <p style="font-size: 12px; color: var(--muted); margin-top: 8px;">Reply within one business day, usually faster.</p>
+            </div>
+            <div class="ci-card">
+              <div class="label">— Phone · text or call</div>
+              <div class="v">(368) <em>599-0012</em></div>
+              <p style="font-size: 12px; color: var(--muted); margin-top: 8px;">Mon — Sun, 9am — 7pm MT.</p>
+            </div>
+            <div class="ci-card dark">
+              <div class="label">— Visit the studio</div>
+              <address>Unit H38, New Horizon Mall<br/>260300 Writing Creek Cres<br/>Balzac, AB T4A 0X8</address>
+              <p style="font-size: 12px; color: rgba(255,252,235,0.5); margin-top: 14px; font-family: 'Geist Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase;">By appointment only</p>
+            </div>
+            <div class="map">
+              <div class="map-bg"></div>
+              <span class="label">Map · Balzac, Alberta</span>
+              <div class="pin"></div>
+              <div class="place">New Horizon <em>Mall</em></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scr-foot">
+          <div class="top">
+            <div><h4>Index — 09 / Contact</h4><p class="word">Let's talk about your <span class="display-italic" style="color: var(--orange)">vision</span>.<span class="small">Open Mon — Sun · By appointment</span></p></div>
+            <div><h4>Studio</h4><ul><li>Services</li><li>The Space</li><li>Portfolio</li><li>Booking</li></ul></div>
+            <div><h4>Connect</h4><ul><li>Instagram ↗</li><li>LinkedIn ↗</li><li>Pinterest ↗</li></ul></div>
+            <div><h4>Visit</h4><address>Unit H38, New Horizon Mall<br/>Balzac, AB T4A 0X8<br/><br/>(368) 599-0012<br/>connect@lbbrandhaus.com</address></div>
+          </div>
+          <div class="bot"><span>© 2026 LB Brand Haus</span><span>Site by Gridhouse Digital</span></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============= MOBILE SCREENS ============= -->
+  <section class="ab-section">
+    <div class="ab-section-head">
+      <h2 class="display">Mobile <em>screens</em>.</h2>
+      <span class="num">06 / 390 × 844</span>
+    </div>
+
+    <p style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px;">Scroll horizontally to view all five mobile screens →  ·  Each frame is independently scrollable internally.</p>
+
+    <div class="frame-mobile-row">
+
+      <!-- MOBILE: HOME -->
+      <div class="frame-mobile">
+        <div class="scr">
+          <div class="scr-nav">
+            <a class="brand-mark" href="#"><span class="mark"><img src="logo.png" alt=""/></span><span class="name">LB Brand <em>Haus</em></span></a>
+            <button class="ham"><span></span><span></span></button>
+          </div>
+          <div class="scr-hero">
+            <div class="index">— 01 / Welcome</div>
+            <div>
+              <h1>Create.<br/>Build.<br/><em>Grow.</em></h1>
+              <p>A creative studio for brands ready to show up clearly. Photography, brand strategy, studio rental — Calgary based.</p>
+            </div>
+            <div class="img-frame"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/branhaus-calgary-interior-shoot-scaled.jpg" alt=""/></div>
+          </div>
+          <div class="scr-ticker">
+            <span>Studio rental open · $70 / hour <span class="dot"></span></span>
+            <span>Editorial photography <span class="dot"></span></span>
+          </div>
+          <div class="scr-manifesto">
+            <div class="label">— On intention</div>
+            <p class="lead">A space built for <em>intention</em>.</p>
+            <p class="body">We sit down, sketch the story, set the room, and produce work that earns shelf space in your audience's memory.</p>
+          </div>
+          <div class="scr-services-teaser">
+            <div class="head"><h2>What we <em>do</em>.</h2><span class="mono">— 02 / Practice</span></div>
+            <div class="grid">
+              <div class="scr-svc-card">
+                <span class="num">— 01 / Strategy</span>
+                <div class="img"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/lb-brand-haus-guide-scaled.jpg" alt=""/></div>
+                <h3>Brand Strategy</h3>
+                <p>Strategic storytelling for growth and market authority.</p>
+                <div class="read"><span>Read more</span><span style="color: var(--orange)">→</span></div>
+              </div>
+              <div class="scr-svc-card">
+                <span class="num">— 02 / Content</span>
+                <div class="img"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/LB-Brand-Content-Creation-.webp" alt=""/></div>
+                <h3>Content Creation</h3>
+                <p>Monthly content systems delivered for every channel.</p>
+                <div class="read"><span>Read more</span><span style="color: var(--orange)">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="scr-studio-dark">
+            <div class="img-frame"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/studio-lb-brand-haus-session-with-happy-client.jpg" alt=""/></div>
+            <div>
+              <div class="label">— 04 / The Haus</div>
+              <h2>Rent the <em>Haus</em>.</h2>
+              <p>A natural-light studio for photographers, brands, and creators. Pre-styled. Plug-and-play.</p>
+              <div class="specs">
+                <div><div class="k">Rate</div><div class="v">$70/hr</div></div>
+                <div><div class="k">Hours</div><div class="v">Mon — Sun</div></div>
+                <div><div class="k">Cap.</div><div class="v">1 — 6</div></div>
+              </div>
+              <a href="#" class="cta">Book today →</a>
+            </div>
+          </div>
+          <div class="scr-foot">
+            <div class="top">
+              <div><h4>Contact</h4><p class="word">Let's <span class="display-italic" style="color: var(--orange)">talk</span>.<span class="small">Mon — Sun</span></p></div>
+              <div><h4>Visit</h4><address>Unit H38, New Horizon Mall<br/>Balzac, AB<br/><br/>(368) 599-0012</address></div>
+            </div>
+            <div class="bot"><span>© 2026 LB Brand Haus</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE: SERVICES -->
+      <div class="frame-mobile">
+        <div class="scr">
+          <div class="scr-nav">
+            <a class="brand-mark" href="#"><span class="mark"><img src="logo.png" alt=""/></span><span class="name">LB Brand <em>Haus</em></span></a>
+            <button class="ham"><span></span><span></span></button>
+          </div>
+          <div class="scr-port-hero">
+            <span class="mono">— 02 / Practice</span>
+            <h1 style="margin-top: 12px;">Our <em>services</em>.</h1>
+          </div>
+          <div class="scr-svc-detail">
+            <div class="row">
+              <div>
+                <div class="num-display">01.</div>
+                <div class="label">— Brand Strategy</div>
+              </div>
+              <div>
+                <h3>Brand <em>Strategy</em>.</h3>
+                <p class="lede">Strategic storytelling designed for growth and market authority.</p>
+                <p class="body">Foundational engagement for founders ready to commit to a clear, defensible position. We build the spine before we dress the body.</p>
+                <ul class="includes">
+                  <li>Brand audit &amp; competitive review</li>
+                  <li>Audience &amp; persona definition</li>
+                  <li>Positioning architecture</li>
+                  <li>Activation roadmap</li>
+                </ul>
+                <div class="price-row">
+                  <div class="price"><em>From</em> $4,800<span>· 4 — 6 weeks</span></div>
+                  <a class="btn btn-primary" href="#">Book session →</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <div class="num-display">02.</div>
+                <div class="label">— Content</div>
+              </div>
+              <div>
+                <h3>Content <em>Creation</em>.</h3>
+                <p class="lede">Monthly content systems and campaign drops, produced in studio.</p>
+                <p class="body">For brands that need a steady stream of considered, on-strategy content. We plan, shoot in batches, and deliver monthly.</p>
+                <ul class="includes">
+                  <li>Quarterly content planning</li>
+                  <li>Monthly studio shoot</li>
+                  <li>40 — 60 assets / month</li>
+                  <li>Caption &amp; copy</li>
+                </ul>
+                <div class="price-row">
+                  <div class="price"><em>From</em> $2,400<span>/ month</span></div>
+                  <a class="btn btn-primary" href="#">Start →</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <div class="num-display">03.</div>
+                <div class="label">— Photography</div>
+              </div>
+              <div>
+                <h3>Editorial <em>Photography</em>.</h3>
+                <p class="lede">Personal brand portraits and product photography to magazine standards.</p>
+                <ul class="includes">
+                  <li>Pre-shoot vision call</li>
+                  <li>Half or full studio day</li>
+                  <li>30 — 80 finished images</li>
+                  <li>Retouching included</li>
+                </ul>
+                <div class="price-row">
+                  <div class="price"><em>From</em> $850<span>· half-day</span></div>
+                  <a class="btn btn-primary" href="#">Book →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="scr-foot">
+            <div class="top">
+              <div><h4>Contact</h4><p class="word">Let's <span class="display-italic" style="color: var(--orange)">talk</span>.<span class="small">Mon — Sun</span></p></div>
+            </div>
+            <div class="bot"><span>© 2026 LB Brand Haus</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE: STUDIO -->
+      <div class="frame-mobile">
+        <div class="scr">
+          <div class="scr-nav">
+            <a class="brand-mark" href="#"><span class="mark"><img src="logo.png" alt=""/></span><span class="name">LB Brand <em>Haus</em></span></a>
+            <button class="ham"><span></span><span></span></button>
+          </div>
+          <div class="scr-studio-hero">
+            <div class="top">
+              <h1>The <em>Haus</em>.</h1>
+              <div class="right">
+                <span class="mono">Studio · 1,200 sqft</span>
+                <div class="rate">$70<span style="font-size: 14px; color: var(--muted);">/hr</span></div>
+              </div>
+            </div>
+            <div class="gallery">
+              <div class="big"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/branhaus-calgary-interior-shoot-scaled.jpg" alt=""/></div>
+              <div><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/studio-lb-brand-haus-session-with-happy-client.jpg" alt=""/></div>
+              <div><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/lb-brand-haus-guide-scaled.jpg" alt=""/></div>
+              <div><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/LB-Brand-Content-Creation-.webp" alt=""/></div>
+              <div><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/branhaus-calgary-interior-shoot-scaled.jpg" alt=""/></div>
+            </div>
+          </div>
+          <div class="scr-studio-includes">
+            <div>
+              <div class="label">— What's included</div>
+              <h2>Plug-and-<em>play</em>.</h2>
+              <p style="margin-top: 14px; color: var(--charcoal); font-size: 13px; line-height: 1.6;">Everything you need is in the room.</p>
+            </div>
+            <ul>
+              <li><div><span class="lnum">01</span> <span class="ln">Natural-light bay</span><span class="ld">11ft of east-facing glass</span></div></li>
+              <li><div><span class="lnum">02</span> <span class="ln">Profoto B10 kit</span><span class="ld">2 strobes, modifiers</span></div></li>
+              <li><div><span class="lnum">03</span> <span class="ln">Backdrop wall</span><span class="ld">Cream, charcoal, sage</span></div></li>
+              <li><div><span class="lnum">04</span> <span class="ln">Props library</span><span class="ld">Glassware, linens, plinths</span></div></li>
+              <li><div><span class="lnum">05</span> <span class="ln">Changing area</span><span class="ld">Steamer, mirror, vanity</span></div></li>
+              <li><div><span class="lnum">06</span> <span class="ln">Wifi &amp; tethering</span><span class="ld">Capture One ready</span></div></li>
+            </ul>
+          </div>
+          <div class="scr-studio-book">
+            <div>
+              <span class="mono" style="color: rgba(255,252,235,0.5)">— Reserve a slot</span>
+              <h2 style="margin-top: 14px;">Book the <em>Haus</em>.</h2>
+              <p>Pick a date, choose your hours, you're booked.</p>
+              <a class="btn btn-orange" href="#" style="margin-top: 16px;">Continue →</a>
+            </div>
+            <div class="calendar">
+              <div class="cal-head">
+                <span class="m">May <em>2026</em></span>
+                <div class="nav"><span>←</span><span>→</span></div>
+              </div>
+              <div class="cal-grid">
+                <div class="h">M</div><div class="h">T</div><div class="h">W</div><div class="h">T</div><div class="h">F</div><div class="h">S</div><div class="h">S</div>
+                <div class="d muted">28</div><div class="d muted">29</div><div class="d muted">30</div><div class="d">1</div><div class="d dot">2</div><div class="d dot">3</div><div class="d">4</div>
+                <div class="d">5</div><div class="d dot">6</div><div class="d">7</div><div class="d sel">8</div><div class="d dot">9</div><div class="d">10</div><div class="d">11</div>
+                <div class="d">12</div><div class="d">13</div><div class="d dot">14</div><div class="d">15</div><div class="d">16</div><div class="d dot">17</div><div class="d">18</div>
+              </div>
+            </div>
+          </div>
+          <div class="scr-foot">
+            <div class="top">
+              <div><h4>Contact</h4><p class="word">Let's <span class="display-italic" style="color: var(--orange)">talk</span>.<span class="small">Mon — Sun</span></p></div>
+            </div>
+            <div class="bot"><span>© 2026 LB Brand Haus</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE: PORTFOLIO -->
+      <div class="frame-mobile">
+        <div class="scr">
+          <div class="scr-nav">
+            <a class="brand-mark" href="#"><span class="mark"><img src="logo.png" alt=""/></span><span class="name">LB Brand <em>Haus</em></span></a>
+            <button class="ham"><span></span><span></span></button>
+          </div>
+          <div class="scr-port-hero">
+            <div class="top">
+              <h1>Selected <em>work</em>.</h1>
+              <span class="mono">— 03 / Portfolio</span>
+            </div>
+            <div class="filters">
+              <div class="pill active">All</div>
+              <div class="pill">Brand</div>
+              <div class="pill">Photo</div>
+              <div class="pill">Editorial</div>
+              <span class="count">14 projects</span>
+            </div>
+          </div>
+          <div class="scr-port-grid">
+            <div class="grid">
+              <div class="p">
+                <div class="fr"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/branhaus-calgary-interior-shoot-scaled.jpg" alt=""/></div>
+                <div class="meta"><span>Maison Belmont</span><span>Brand · 2026</span></div>
+                <h4>A heritage Calgary patisserie, refreshed.</h4>
+              </div>
+              <div class="p">
+                <div class="fr type type-orange"><span>North Forty <span class="display-italic">Coffee</span></span></div>
+                <div class="meta"><span>North Forty Coffee</span><span>Identity · 2025</span></div>
+                <h4>From farmer's market to four locations.</h4>
+              </div>
+              <div class="p">
+                <div class="fr"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/lb-brand-haus-guide-scaled.jpg" alt=""/></div>
+                <div class="meta"><span>The Veneration Co.</span><span>Content · 2025</span></div>
+                <h4>Quarterly system for a wellness studio.</h4>
+              </div>
+              <div class="p">
+                <div class="fr type"><span>Studio <span class="display-italic" style="color: var(--orange)">Mira</span></span></div>
+                <div class="meta"><span>Studio Mira</span><span>Editorial · 2025</span></div>
+                <h4>Spring '25 collection campaign.</h4>
+              </div>
+              <div class="p">
+                <div class="fr"><img src="https://lbbrandhaus.com/wp-content/uploads/2026/04/LB-Brand-Content-Creation-.webp" alt=""/></div>
+                <div class="meta"><span>Holt Renfrew Calgary</span><span>Campaign · 2024</span></div>
+                <h4>Q4 window display photography.</h4>
+              </div>
+              <div class="p">
+                <div class="fr type type-teal"><span>Bowness <span class="display-italic">Botanicals</span></span></div>
+                <div class="meta"><span>Bowness Botanicals</span><span>Identity · 2024</span></div>
+                <h4>Identity for a small-batch herbalist.</h4>
+              </div>
+            </div>
+          </div>
+          <div class="scr-foot">
+            <div class="top">
+              <div><h4>Contact</h4><p class="word">Let's <span class="display-italic" style="color: var(--orange)">talk</span>.</p></div>
+            </div>
+            <div class="bot"><span>© 2026 LB Brand Haus</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE: CONTACT -->
+      <div class="frame-mobile">
+        <div class="scr">
+          <div class="scr-nav">
+            <a class="brand-mark" href="#"><span class="mark"><img src="logo.png" alt=""/></span><span class="name">LB Brand <em>Haus</em></span></a>
+            <button class="ham"><span></span><span></span></button>
+          </div>
+          <div class="scr-contact-hero">
+            <span class="mono">— 09 / Contact</span>
+            <h1 style="margin-top: 12px;">Let's <em>talk</em>.</h1>
+            <p class="lede">Tell us about your project. We respond within one business day — usually the same afternoon.</p>
+          </div>
+          <div class="scr-contact-body">
+            <div class="form-card">
+              <h3>Start a <em>conversation</em>.</h3>
+              <div class="row2">
+                <div class="field"><label>Name</label><input type="text" placeholder="Lauren Bélanger" /></div>
+                <div class="field"><label>Email</label><input type="email" placeholder="lauren@maison.ca" /></div>
+              </div>
+              <div class="field">
+                <label>Project type</label>
+                <div class="chips">
+                  <span class="c on">Photo</span>
+                  <span class="c">Brand</span>
+                  <span class="c">Content</span>
+                  <span class="c">Studio</span>
+                </div>
+              </div>
+              <div class="field">
+                <label>Tell us about your project</label>
+                <textarea placeholder="A few sentences on what you're working on." rows="3"></textarea>
+              </div>
+              <button>Send →</button>
+            </div>
+            <div class="scr-contact-side">
+              <div class="ci-card">
+                <div class="label">— Email · fastest</div>
+                <div class="v"><em>connect</em>@lbbrandhaus.com</div>
+              </div>
+              <div class="ci-card">
+                <div class="label">— Phone</div>
+                <div class="v">(368) <em>599-0012</em></div>
+              </div>
+              <div class="ci-card dark">
+                <div class="label">— Visit the studio</div>
+                <address>Unit H38, New Horizon Mall<br/>Balzac, AB T4A 0X8</address>
+              </div>
+              <div class="map">
+                <div class="map-bg"></div>
+                <span class="label">Map · Balzac</span>
+                <div class="pin"></div>
+                <div class="place">New Horizon <em>Mall</em></div>
+              </div>
+            </div>
+          </div>
+          <div class="scr-foot">
+            <div class="top">
+              <div><h4>Visit</h4><address>Unit H38, New Horizon Mall<br/>Balzac, AB<br/>(368) 599-0012</address></div>
+            </div>
+            <div class="bot"><span>© 2026 LB Brand Haus</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============= CLOSING ============= -->
+  <hr class="ab-divider" />
+  <footer style="padding: 40px 0; display: flex; justify-content: space-between; align-items: baseline; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);">
+    <span>End of document</span>
+    <span>LB Brand Haus · Design system v0.3 · May 2026</span>
+    <span>Gridhouse Digital</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
